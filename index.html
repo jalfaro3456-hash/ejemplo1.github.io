@@ -1,11 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi primera web</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio profesional de [Tu nombre].">
+  <title>[Tu nombre] | Portfolio</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #647087;
+      --accent: #2864dc;
+      --line: #e7ebf2;
+      --paper: #ffffff;
+      --soft: #f5f7fb;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--soft);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
+    header { padding: 22px 0; background: rgba(255,255,255,.9); border-bottom: 1px solid var(--line); }
+    nav { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.1rem; }
+    .brand span { color: var(--accent); }
+    .navlinks { display: flex; gap: 24px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: var(--accent); }
+    main { padding: 66px 0 76px; }
+    .hero {
+      display: grid; grid-template-columns: 1.35fr .65fr; gap: 52px;
+      align-items: center; padding: 46px; background: var(--paper);
+      border: 1px solid var(--line); border-radius: 24px;
+      box-shadow: 0 16px 50px rgba(26, 42, 75, .06);
+    }
+    .eyebrow { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h1 { margin: 12px 0 10px; font-size: clamp(2.4rem, 6vw, 4.3rem); line-height: 1.04; letter-spacing: -.065em; }
+    .role { color: var(--muted); font-size: 1.16rem; font-weight: 600; margin: 0 0 22px; }
+    .intro { color: #536078; max-width: 590px; font-size: 1.02rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-block; padding: 11px 17px; border-radius: 10px; font-weight: 700; font-size: .92rem; }
+    .primary { background: var(--accent); color: white; }
+    .secondary { border: 1px solid var(--line); background: white; }
+    .photo-frame { width: min(100%, 250px); aspect-ratio: 1; margin: auto; padding: 9px; border-radius: 28px; background: #edf2ff; transform: rotate(2deg); }
+    .photo {
+      width: 100%; height: 100%; border-radius: 21px; object-fit: cover;
+      display: block; background: linear-gradient(145deg, #dce6fb, #f4e9df);
+    }
+    .photo-note { text-align: center; color: var(--muted); font-size: .78rem; margin-top: 15px; }
+    section { margin-top: 34px; padding: 34px 38px; background: white; border: 1px solid var(--line); border-radius: 20px; }
+    .section-label { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h2 { margin: 5px 0 18px; font-size: 1.65rem; letter-spacing: -.04em; }
+    .career { max-width: 760px; color: #536078; margin: 0; }
+    .job { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; }
+    .job h3 { margin: 0 0 4px; font-size: 1.12rem; }
+    .company { color: var(--accent); font-weight: 700; }
+    .date { color: var(--muted); white-space: nowrap; font-size: .9rem; }
+    .job p { color: #536078; margin: 14px 0 0; max-width: 760px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
+    .tag { background: #f1f4fa; color: #43516b; padding: 6px 10px; border-radius: 7px; font-size: .8rem; font-weight: 650; }
+    footer { padding: 28px 0 42px; text-align: center; color: var(--muted); font-size: .88rem; }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 26px, 560px); }
+      .navlinks { gap: 13px; font-size: .82rem; }
+      main { padding-top: 28px; }
+      .hero { grid-template-columns: 1fr; padding: 28px 23px; gap: 30px; }
+      .photo-frame { grid-row: 1; width: 180px; }
+      section { padding: 27px 23px; }
+      .job { display: block; }
+      .date { display: block; margin-top: 7px; }
+    }
+  </style>
 </head>
 <body>
-    <h1>¡Hola Mundo!</h1>
-    <p>Mi primera página publicada con GitHub Pages.</p>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#">[Tu nombre]<span>.</span></a>
+      <div class="navlinks">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="mailto:tu-correo@ejemplo.com">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Portfolio profesional</div>
+        <h1>Hola, soy<br>[Tu nombre].</h1>
+        <p class="role">[Tu profesión o especialidad]</p>
+        <p class="intro">
+          Profesional con experiencia en [tu área principal]. Me gusta convertir
+          problemas reales en soluciones claras, útiles y bien construidas.
+          Actualmente estoy ampliando mis conocimientos y trabajando en nuevos proyectos.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#experiencia">Ver mi experiencia</a>
+          <a class="btn secondary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div>
+        <!-- Guarda tu foto en el repositorio con el nombre foto.jpg -->
+        <div class="photo-frame">
+          <img class="photo" src="foto.jpg" alt="Fotografía de [Tu nombre]"
+               onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(145deg,#dce6fb,#f4e9df)'; this.parentElement.innerHTML='<div style=&quot;height:100%;display:grid;place-items:center;color:#52627e;font-weight:700;text-align:center;padding:20px&quot;>TU<br>FOTOGRAFÍA</div>';">
+        </div>
+        <div class="photo-note">[Ciudad, País] · Disponible para oportunidades</div>
+      </div>
+    </div>
+
+    <section id="sobre-mi">
+      <div class="section-label">Un poco sobre mí</div>
+      <h2>Mi trayectoria</h2>
+      <p class="career">
+        Mi carrera se ha centrado en [sector o especialidad], donde he desarrollado
+        habilidades en [habilidad 1], [habilidad 2] y [habilidad 3]. Me definen
+        la curiosidad, la capacidad de aprendizaje y el compromiso con hacer un
+        trabajo de calidad.
+      </p>
+    </section>
+
+    <section id="experiencia">
+      <div class="section-label">Experiencia reciente</div>
+      <h2>Mi último trabajo</h2>
+      <div class="job">
+        <div>
+          <h3>[Puesto o cargo]</h3>
+          <div class="company">[Nombre de la empresa]</div>
+        </div>
+        <div class="date">[Mes/Año – Mes/Año o Actualidad]</div>
+      </div>
+      <p>
+        En este puesto me encargué de [responsabilidad principal]. Participé en
+        [proyecto o tarea relevante] y contribuí a [resultado o logro concreto].
+      </p>
+      <div class="tags">
+        <span class="tag">[Tecnología / habilidad 1]</span>
+        <span class="tag">[Tecnología / habilidad 2]</span>
+        <span class="tag">[Tecnología / habilidad 3]</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 [Tu nombre] · Hecho con HTML y CSS
+  </footer>
 </body>
 </html>
